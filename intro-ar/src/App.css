@@ -12,6 +12,7 @@
   border: 3px solid black;
 }
 
+
 .title {
   height: 120px;
   width: 200px;
@@ -35,6 +36,6 @@
 .roll-log {
   margin: 120px 200px;
   height: 795px;
-  width: 800px;
+  width: 830px;
   border: 3px solid red;
 }

@@ -3,11 +3,11 @@ import Dice from "./components/Dice";
 import RollLog from "./components/RollLog"
 import "./App.css"
 
-
+/*
 const App = () => {
   
-    const [currentRoll, setCurrentRoll] = useState(0);
-    const [rollLog, setRollLog] = useState([]);
+  const [currentRoll, setCurrentRoll] = useState(0);
+  const [rollLog, setRollLog] = useState([0]);
 
 
     const rollDice = () => {
@@ -15,11 +15,44 @@ const App = () => {
       setCurrentRoll(rollResult);
       setRollLog([...rollLog, rollResult]);
     };
-  
+    
     const clearRollLog = () => {
-      setRollLog([]);
+      setRollLog([0]);
     };
     
+    return (
+      <div className="app">
+      
+      <Dice rollDice={rollDice} currentRoll={currentRoll} />
+      <RollLog rollLog={rollLog} clearRollLog={clearRollLog} />
+      </div>
+      );
+    };
+    
+    
+  export default App
+  
+  */
+
+
+  const App = () => {
+    const [currentRoll, setCurrentRoll] = useState(0);
+    const [rollLog, setRollLog] = useState([0]);
+  
+    const rollDice = () => {
+      const rollResult = Math.floor(Math.random() * 6);
+      setCurrentRoll(rollResult);
+      setRollLog((prevRollLog) => {
+        const newRollLog = prevRollLog.slice(); // Create a copy of the rollLog array
+        newRollLog.push(rollResult);
+        return newRollLog;
+      });
+    };
+  
+    const clearRollLog = () => {
+      setRollLog([0]);
+    };
+  
     return (
       <div className="app">
         <Dice rollDice={rollDice} currentRoll={currentRoll} />
@@ -28,12 +61,7 @@ const App = () => {
     );
   };
   
-  
-  export default App
-
-
-
-
+  export default App;
 
 
 
